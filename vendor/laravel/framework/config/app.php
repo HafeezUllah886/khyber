@@ -88,22 +88,22 @@ return [
     'locale' => env('APP_LOCALE', 'en'),
 
     'domains' => [
-        'jaffar.test',
+        'golden.test',
         'jaffar-s.test',
-        'jaffar.diamondquetta.com',
+        'khyber.diamondqta.com',
         'jaffartest.diamondquetta.com',
         'jaffar.run',
     ],
-        
+
     'databases' => [
         'u788011464_jaffar',
-        'jaffar',
+        'golden',
         'test',
     ],
 
-    'files' => 
+    'files' =>
     [
-        '67372',
+        '441505',
     ],
 
     /*

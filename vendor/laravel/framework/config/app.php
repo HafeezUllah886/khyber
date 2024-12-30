@@ -88,7 +88,7 @@ return [
     'locale' => env('APP_LOCALE', 'en'),
 
     'domains' => [
-        'golden.test',
+        'khyber.test',
         'jaffar-s.test',
         'khyber.diamondqta.com',
         'jaffartest.diamondquetta.com',
@@ -97,7 +97,7 @@ return [
 
     'databases' => [
         'u788011464_jaffar',
-        'golden',
+        'khyber',
         'test',
     ],
 

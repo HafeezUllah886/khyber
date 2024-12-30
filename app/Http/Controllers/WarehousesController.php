@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\units;
+use App\Models\warehouses;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class UnitsController extends Controller
+class WarehousesController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $units = units::all();
+        $warehouses = warehouses::all();
 
-        return view('products.units', compact('units'));
+        return view('warehouses.index', compact('warehouses'));
     }
 
     /**
@@ -22,7 +23,7 @@ class UnitsController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -30,14 +31,16 @@ class UnitsController extends Controller
      */
     public function store(Request $request)
     {
-        units::create($request->all());
-        return back()->with('success', 'Unit Created');
+
+        warehouses::create($request->all());
+
+        return back()->with("success", "Warehouse Created");
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(units $units)
+    public function show(warehouses $warehouses)
     {
         //
     }
@@ -45,7 +48,7 @@ class UnitsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(units $units)
+    public function edit(warehouses $warehouses)
     {
         //
     }
@@ -53,17 +56,17 @@ class UnitsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, warehouses $warehouse)
     {
-        $unit = units::find($id);
-        $unit->update($request->only('name', 'value'));
-        return back()->with('success', "Unit Updated");
+        $warehouse->update($request->all());
+
+        return back()->with('success', "Warehouse Updated");
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(units $units)
+    public function destroy(warehouses $warehouses)
     {
         //
     }

@@ -156,14 +156,24 @@
                                     <input type="number" name="net" id="net" step="any" readonly value="0" class="form-control">
                                 </div>
                             </div>
-                            <div class="col-3">
+                            <div class="col-2">
                                 <div class="form-group">
                                     <label for="date">Date</label>
                                     <input type="date" name="date" id="date" value="{{ date('Y-m-d', strtotime($sale->date)) }}"
                                         class="form-control">
                                 </div>
                             </div>
-                            <div class="col-3">
+                            <div class="col-2">
+                                <div class="form-group">
+                                    <label for="warehouse">Warehouse</label>
+                                    <select name="warehouseID" id="warehouse" class="selectize1">
+                                        @foreach ($warehouses as $warehouse)
+                                            <option value="{{ $warehouse->id }}" @selected($warehouse->id == $sale->warehouseID)>{{ $warehouse->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-2">
                                 <div class="form-group">
                                     <label for="customer">Customer</label>
                                     <select name="customerID" id="customer" class="selectize1">

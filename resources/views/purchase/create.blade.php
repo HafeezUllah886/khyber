@@ -104,14 +104,24 @@
                                     <input type="number" name="net" id="net" step="any" readonly value="0" class="form-control">
                                 </div>
                             </div>
-                            <div class="col-3 mt-2">
+                            <div class="col-2 mt-2">
                                 <div class="form-group">
                                     <label for="date">Date</label>
                                     <input type="date" name="date" id="date" value="{{ date('Y-m-d') }}"
                                         class="form-control">
                                 </div>
                             </div>
-                            <div class="col-3 mt-2">
+                            <div class="col-2 mt-2">
+                                <div class="form-group">
+                                    <label for="warehouse">warehouse</label>
+                                    <select name="warehouseID" id="warehouse" class="selectize1">
+                                        @foreach ($warehouses as $warehouse)
+                                            <option value="{{ $warehouse->id }}">{{ $warehouse->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-2 mt-2">
                                 <div class="form-group">
                                     <label for="vendor">Vendor</label>
                                     <select name="vendorID" id="vendor" class="selectize1">

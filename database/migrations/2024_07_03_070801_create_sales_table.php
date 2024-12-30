@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('customerID')->constrained('accounts', 'id');
             $table->foreignId('orderbookerID')->constrained('users', 'id');
+            $table->foreignId('warehouseID')->constrained('warehouses', 'id');
             $table->date('date');
             $table->float("wh")->default(0);
             $table->float('whValue')->default(0);

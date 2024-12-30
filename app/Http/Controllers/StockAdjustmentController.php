@@ -6,6 +6,7 @@ use App\Models\products;
 use App\Models\stock;
 use App\Models\stockAdjustment;
 use App\Models\units;
+use App\Models\warehouses;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -19,8 +20,9 @@ class StockAdjustmentController extends Controller
         $adjustments = stockAdjustment::orderBy('id', 'desc')->get();
         $products = products::all();
         $units = units::all();
+        $warehouses = warehouses::all();
 
-        return view('stock.adjustment.index', compact('adjustments', 'products', 'units'));
+        return view('stock.adjustment.index', compact('adjustments', 'products', 'units', 'warehouses'));
     }
 
     /**
@@ -45,24 +47,25 @@ class StockAdjustmentController extends Controller
             $qty = $request->qty * $unit->value;
             stockAdjustment::create(
                 [
-                    'productID' => $request->productID,
-                    'unitID'    => $request->unitID,
-                    'unitValue' => $unit->value,
-                    'date'      => $request->date,
-                    'type'      => $request->type,
-                    'qty'       => $request->qty,
-                    'notes'     => $request->notes,
-                    'refID'     => $ref
+                    'productID'     => $request->productID,
+                    'warehouseID'   => $request->warehouseID,
+                    'unitID'        => $request->unitID,
+                    'unitValue'     => $unit->value,
+                    'date'          => $request->date,
+                    'type'          => $request->type,
+                    'qty'           => $request->qty,
+                    'notes'         => $request->notes,
+                    'refID'         => $ref
                 ]
             );
 
             if($request->type == 'Stock-In')
             {
-               createStock($request->productID, $qty, 0, $request->date, "Stock-In: $request->notes", $ref);
+               createStock($request->productID, $qty, 0, $request->date, "Stock-In: $request->notes", $ref, $request->warehouseID);
             }
             else
             {
-                createStock($request->productID, 0, $qty, $request->date, "Stock-Out: $request->notes", $ref);
+                createStock($request->productID, 0, $qty, $request->date, "Stock-Out: $request->notes", $ref, $request->warehouseID);
             }
 
             DB::commit();

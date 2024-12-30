@@ -8,6 +8,7 @@ use App\Models\orders;
 use App\Models\products;
 use App\Models\units;
 use App\Models\User;
+use App\Models\warehouses;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -239,6 +240,7 @@ class OrdersController extends Controller
         $accounts = accounts::business()->get();
         $orderbookers = User::where('role', 'Orderbooker')->get();
         $order = orders::find($id);
-        return view('orders.sale', compact('products', 'units', 'customers', 'accounts', 'orderbookers', 'order'));
+        $warehouses = warehouses::all();
+        return view('orders.sale', compact('products', 'units', 'customers', 'accounts', 'orderbookers', 'order', 'warehouses'));
     }
 }

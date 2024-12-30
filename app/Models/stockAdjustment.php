@@ -19,4 +19,9 @@ class stockAdjustment extends Model
     {
         return $this->belongsTo(units::class, 'unitID');
     }
+
+    public function warehouse()
+    {
+        return $this->belongsTo(warehouses::class, 'warehouseID');
+    }
 }

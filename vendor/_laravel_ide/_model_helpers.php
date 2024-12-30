@@ -2343,6 +2343,7 @@ namespace App\Models {
      * @property double $whValue
      * @property double $wh
      * @property date $date
+     * @property int $warehouseID
      * @property int $vendorID
      * @property int $id
      * @property-read \App\Models\accounts $vendor
@@ -2352,6 +2353,7 @@ namespace App\Models {
      * @property-read int|null $payments_count
      * @method static \Illuminate\Database\Eloquent\Builder|purchase whereId($value)
      * @method static \Illuminate\Database\Eloquent\Builder|purchase whereVendorid($value)
+     * @method static \Illuminate\Database\Eloquent\Builder|purchase whereWarehouseid($value)
      * @method static \Illuminate\Database\Eloquent\Builder|purchase whereDate($value)
      * @method static \Illuminate\Database\Eloquent\Builder|purchase whereWh($value)
      * @method static \Illuminate\Database\Eloquent\Builder|purchase whereWhvalue($value)
@@ -3910,6 +3912,7 @@ namespace App\Models {
      * @property double $whValue
      * @property double $wh
      * @property date $date
+     * @property int $warehouseID
      * @property int $orderbookerID
      * @property int $customerID
      * @property int $id
@@ -3922,6 +3925,7 @@ namespace App\Models {
      * @method static \Illuminate\Database\Eloquent\Builder|sales whereId($value)
      * @method static \Illuminate\Database\Eloquent\Builder|sales whereCustomerid($value)
      * @method static \Illuminate\Database\Eloquent\Builder|sales whereOrderbookerid($value)
+     * @method static \Illuminate\Database\Eloquent\Builder|sales whereWarehouseid($value)
      * @method static \Illuminate\Database\Eloquent\Builder|sales whereDate($value)
      * @method static \Illuminate\Database\Eloquent\Builder|sales whereWh($value)
      * @method static \Illuminate\Database\Eloquent\Builder|sales whereWhvalue($value)
@@ -4176,10 +4180,13 @@ namespace App\Models {
      * @property double $db
      * @property double $cr
      * @property date $date
+     * @property int $warehouseID
      * @property int $productID
      * @property int $id
+     * @property-read \App\Models\warehouses $warehouse
      * @method static \Illuminate\Database\Eloquent\Builder|stock whereId($value)
      * @method static \Illuminate\Database\Eloquent\Builder|stock whereProductid($value)
+     * @method static \Illuminate\Database\Eloquent\Builder|stock whereWarehouseid($value)
      * @method static \Illuminate\Database\Eloquent\Builder|stock whereDate($value)
      * @method static \Illuminate\Database\Eloquent\Builder|stock whereCr($value)
      * @method static \Illuminate\Database\Eloquent\Builder|stock whereDb($value)
@@ -4432,12 +4439,15 @@ namespace App\Models {
      * @property double $unitValue
      * @property int $unitID
      * @property double $qty
+     * @property int $warehouseID
      * @property int $productID
      * @property int $id
      * @property-read \App\Models\products $product
      * @property-read \App\Models\units $unit
+     * @property-read \App\Models\warehouses $warehouse
      * @method static \Illuminate\Database\Eloquent\Builder|stockAdjustment whereId($value)
      * @method static \Illuminate\Database\Eloquent\Builder|stockAdjustment whereProductid($value)
+     * @method static \Illuminate\Database\Eloquent\Builder|stockAdjustment whereWarehouseid($value)
      * @method static \Illuminate\Database\Eloquent\Builder|stockAdjustment whereQty($value)
      * @method static \Illuminate\Database\Eloquent\Builder|stockAdjustment whereUnitid($value)
      * @method static \Illuminate\Database\Eloquent\Builder|stockAdjustment whereUnitvalue($value)

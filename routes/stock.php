@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth', adminCheck::class)->group(function () {
 
-    Route::get('products/stock/{id}/{unit}/{from}/{to}', [StockController::class, 'show'])->name('stockDetails');
+    Route::get('products/stock/{id}/{unit}/{warehouse}/{from}/{to}', [StockController::class, 'show'])->name('stockDetails');
     Route::resource('product_stock', StockController::class);
 
     Route::resource('stockAdjustments', StockAdjustmentController::class);

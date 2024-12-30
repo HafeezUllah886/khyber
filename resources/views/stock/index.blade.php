@@ -77,6 +77,15 @@
                                 @endforeach
                             </select>
                            </div>
+                           <div class="form-group mt-2">
+                            <label for="warehouse">Warehouse</label>
+                            <select name="warehouse" class="form-control" id="warehouse">
+                                <option value="all">All</option>
+                                @foreach ($warehouses as $warehouse)
+                                    <option value="{{$warehouse->id}}">{{$warehouse->name}}</option>
+                                @endforeach
+                            </select>
+                           </div>
                          </div>
                          <div class="modal-footer">
                                 <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
@@ -119,11 +128,13 @@
         $("#viewBtn").on("click", function (){
             var productID = $("#productID").val();
             var unit = $("#unit").find(":selected").val();
+            var warehouse = $("#warehouse").find(":selected").val();
             var from = $("#from").val();
             var to = $("#to").val();
-            var url = "{{ route('stockDetails', ['id' => ':productID', 'unit' => ':unit', 'from' => ':from', 'to' => ':to']) }}"
+            var url = "{{ route('stockDetails', ['id' => ':productID', 'unit' => ':unit', 'warehouse' => ':warehouse', 'from' => ':from', 'to' => ':to']) }}"
         .replace(':productID', productID)
         .replace(':unit', unit)
+        .replace(':warehouse', warehouse)
         .replace(':from', from)
         .replace(':to', to);
             window.open(url, "_blank", "width=1000,height=800");

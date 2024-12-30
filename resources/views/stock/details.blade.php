@@ -59,6 +59,7 @@
                                             <tr class="table-active">
                                                 <th scope="col" style="width: 50px;">#</th>
                                                 <th scope="col" style="width: 50px;">Ref#</th>
+                                                <th scope="col">Warehouse</th>
                                                 <th scope="col">Date</th>
                                                 <th scope="col" class="text-start">Notes</th>
                                                 <th scope="col" class="text-end">Credit</th>
@@ -78,6 +79,7 @@
                                             <tr>
                                                 <td>{{ $key+1 }}</td>
                                                 <td>{{ $stock->refID }}</td>
+                                                <td class="text-start">{{ $stock->warehouse->name }}</td>
                                                 <td>{{ date('d M Y', strtotime($stock->date)) }}</td>
                                                 <td class="text-start">{{ $stock->notes }}</td>
                                                 <td class="text-end">{{ number_format($stock->cr / $unit->value,2) }} {{$unit->name}}</td>

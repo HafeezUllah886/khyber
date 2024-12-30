@@ -12,6 +12,7 @@
                         <thead>
                             <th>#</th>
                             <th>Ref #</th>
+                            <th>Warehouse</th>
                             <th>Product</th>
                             <th>Date</th>
                             <th>Type</th>
@@ -25,6 +26,7 @@
                                 <tr>
                                     <td>{{ $key + 1 }}</td>
                                     <td>{{ $item->refID }}</td>
+                                    <td>{{ $item->warehouse->name }}</td>
                                     <td>{{ $item->product->name }}</td>
                                     <td>{{ date('d M Y', strtotime($item->date)) }}</td>
                                     <td>
@@ -85,6 +87,14 @@
                             <select name="type" id="type" class="form-control">
                                 <option value="Stock-In">Stock-In</option>
                                 <option value="Stock-Out">Stock-Out</option>
+                            </select>
+                        </div>
+                        <div class="form-group mt-2">
+                            <label for="warehouse">Warehouse</label>
+                            <select name="warehouseID" id="warehouse" class="form-control">
+                                @foreach ($warehouses as $warehouse)
+                                    <option value="{{$warehouse->id}}">{{$warehouse->name}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group mt-2">

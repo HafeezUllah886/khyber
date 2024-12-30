@@ -9,4 +9,9 @@ class stock extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function warehouse()
+    {
+        return $this->belongsTo(warehouses::class, 'warehouseID');
+    }
 }

@@ -96,7 +96,7 @@ return [
     ],
 
     'databases' => [
-        'u788011464_jaffar',
+        'u788011464_khyber',
         'khyber',
         'test',
     ],

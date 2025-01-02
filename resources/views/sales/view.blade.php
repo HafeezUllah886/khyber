@@ -17,7 +17,7 @@
                         <div class="col-lg-12 ">
                             <div class="row">
                                 <div class="col-4"></div>
-                                <div class="col-4 text-center"><h2>SALES TAX INVOICE</h2></div>
+                                <div class="col-4 text-center"><h2>INVOICE</h2></div>
                             </div>
                             <div class="card-body p-4">
                                 <div class="row g-3">
@@ -27,7 +27,7 @@
                                     </div>
                                     <div class="col-5">
                                         <p class="text-muted mb-2 text-uppercase fw-semibold">Customer</p>
-                                        <h5 class="fs-14 mb-0"> <span class="text-muted">M/S :</span> {{$sale->customer->title}}</h5>
+                                        <h5 class="fs-18 mb-0"> <span class="text-muted">M/S :</span> {{$sale->customer->title}}</h5>
                                         @if ($sale->customerID != 2)
                                         <h5 class="fs-14 mb-0"> <span class="text-muted">CNIC :</span> {{$sale->customer->cnic ?? "NA"}} | <span class="text-muted">Contact :</span> {{$sale->customer->contact ?? "NA"}}</h5>
                                         <h5 class="fs-14 mb-0"> <span class="text-muted">Type :</span> {{$sale->customer->c_type}} | NTN #</span> {{$sale->customer->ntn ?? "NA"}} | <span class="text-muted">STRN #</span> {{$sale->customer->strn ?? "NA"}}</h5>
@@ -172,7 +172,7 @@
                                 @if ($sale->notes != "")
                                 <p><strong>Notes: </strong>{{$sale->notes}}</p>
                                 @endif
-                               <p class="text-center urdu"><strong>نوٹ: مال آپ کے آرڈر کے مطابق بھیجا جا رہا ہے۔ مال ایکسپائر یا خراب ہونے کی صورت میں واپس نہیں لیا جائے گا۔ دکاندار سیلزمین کے ساتھ کسی قسم کے ذاتی لین دین کا ذمہ دار خود ہوگا۔</strong></p>
+                             {{--   <p class="text-center urdu"><strong>نوٹ: مال آپ کے آرڈر کے مطابق بھیجا جا رہا ہے۔ مال ایکسپائر یا خراب ہونے کی صورت میں واپس نہیں لیا جائے گا۔ دکاندار سیلزمین کے ساتھ کسی قسم کے ذاتی لین دین کا ذمہ دار خود ہوگا۔</strong></p> --}}
 
                             </div>
                             <!--end card-body-->

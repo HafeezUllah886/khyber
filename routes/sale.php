@@ -15,7 +15,6 @@ Route::middleware('auth', adminCheck::class)->group(function () {
 
     Route::resource('sale', SalesController::class);
 
-
     Route::get("sales/delete/{id}", [SalesController::class, 'destroy'])->name('sale.delete')->middleware(confirmPassword::class);
     Route::get("sales/gatepass/{id}", [SalesController::class, 'gatePass'])->name('sale.gatePass');
     Route::get("product/searchByCode/{code}", [SalesController::class, 'getProductByCode'])->name('product.searchByCode');

@@ -28,11 +28,11 @@
                                     <div class="col-5">
                                         <p class="text-muted mb-2 text-uppercase fw-semibold">Customer</p>
                                         <h5 class="fs-18 mb-0"> <span class="text-muted">M/S :</span> {{$sale->customer->title}}</h5>
-                                        @if ($sale->customerID != 2)
+                                        {{-- @if ($sale->customerID != 2)
                                         <h5 class="fs-14 mb-0"> <span class="text-muted">CNIC :</span> {{$sale->customer->cnic ?? "NA"}} | <span class="text-muted">Contact :</span> {{$sale->customer->contact ?? "NA"}}</h5>
                                         <h5 class="fs-14 mb-0"> <span class="text-muted">Type :</span> {{$sale->customer->c_type}} | NTN #</span> {{$sale->customer->ntn ?? "NA"}} | <span class="text-muted">STRN #</span> {{$sale->customer->strn ?? "NA"}}</h5>
                                         <h5 class="fs-14 mb-0"> <span class="text-muted">Address :</span> {{$sale->customer->address ?? "NA"}}</h5>
-                                        @endif
+                                        @endif --}}
 
                                     </div>
                                     <div class="col-3">
@@ -156,10 +156,10 @@
                                                 <th colspan="9" class="text-end p-0 m-0">Due</th>
                                                 <th class="text-end p-0 m-0">{{number_format($due,2)}}</th>
                                             </tr>
-                                            <tr class="m-0 p-0">
+                                            {{-- <tr class="m-0 p-0">
                                                 <th colspan="9" class="text-end p-0 m-0">Previous Balance</th>
                                                 <th class="text-end p-0 m-0">{{number_format(spotBalanceBefore($sale->customerID, $sale->refID),2)}}</th>
-                                            </tr>
+                                            </tr> --}}
                                             <tr class="m-0 p-0">
                                                 <th colspan="9" class="text-end p-0 m-0">Net Account Balance</th>
                                                 <th class="text-end p-0 m-0">{{number_format(spotBalance($sale->customerID, $sale->refID),2)}}</th>

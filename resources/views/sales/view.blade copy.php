@@ -122,33 +122,39 @@
                                                 <th class="text-end no-padding">{{number_format($totalGstVal,2)}}</th>
                                             </tr>
                                             <tr class="m-0 p-0">
-                                                <th colspan="3" class="text-end p-0 m-0 no-padding">WH Tax {{$sale->wh}}% (+)</th>
-                                                <th class="text-end p-0 m-0 no-padding">{{number_format($sale->whValue,2)}}</th>
-                                                <th colspan="5" class="text-end p-0 m-0 no-padding">Tax Exclusive</th>
+                                                <th colspan="9" class="text-end p-0 m-0 no-padding">Tax Exclusive</th>
                                                 <th class="text-end p-0 m-0 no-padding">{{number_format($totalTi - $totalGstVal,2)}}</th>
                                             </tr>
                                             <tr class="m-0 p-0">
-                                                <th colspan="3" class="text-end p-0 m-0 no-padding">Discount (-)</th>
-                                                <th class="text-end p-0 m-0 ">{{number_format($sale->discount,2)}}</th>
-                                                <th colspan="5" class="text-end p-0 m-0 no-padding">Sales Tax</th>
+                                                <th colspan="9" class="text-end p-0 m-0 no-padding">Sales Tax</th>
                                                 <th class="text-end p-0 m-0 no-padding">{{number_format($totalGstVal,2)}}</th>
                                             </tr>
                                             <tr class="m-0 p-0">
-                                                <th colspan="3" class="text-end p-0 m-0 no-padding">Fright (-)</th>
-                                                <th class="text-end p-0 m-0  no-padding">{{number_format($sale->fright,2)}}</th>
-                                                <th colspan="5" class="text-end p-0 m-0 no-padding">Gross</th>
+                                                <th colspan="9" class="text-end p-0 m-0 no-padding">Gross</th>
                                                 <th class="text-end p-0 m-0 border-2 border-start-0 border-end-0 border-dark no-padding">{{number_format($totalTi,2)}}</th>
                                             </tr>
                                             <tr class="m-0 p-0">
-                                                <th colspan="3" class="text-end p-0 m-0 no-padding">Fright (+)</th>
+                                                <th colspan="9" class="text-end p-0 m-0 no-padding">WH Tax {{$sale->wh}}% (+)</th>
+                                                <th class="text-end p-0 m-0 no-padding">{{number_format($sale->whValue,2)}}</th>
+                                            </tr>
+                                            <tr class="m-0 p-0">
+                                                <th colspan="9" class="text-end p-0 m-0 no-padding">Discount (-)</th>
+                                                <th class="text-end p-0 m-0 ">{{number_format($sale->discount,2)}}</th>
+                                            </tr>
+                                            <tr class="m-0 p-0 no-padding">
+                                                <th colspan="9" class="text-end p-0 m-0 no-padding">Fright (-)</th>
+                                                <th class="text-end p-0 m-0  no-padding">{{number_format($sale->fright,2)}}</th>
+                                            </tr>
+                                            <tr class="m-0 p-0">
+                                                <th colspan="9" class="text-end p-0 m-0 no-padding">Fright (+)</th>
                                                 <th class="text-end p-0 m-0  no-padding">{{number_format($sale->fright1,2)}}</th>
-                                                <th colspan="5" class="text-end p-0 m-0 no-padding">Net Bill</th>
+                                            </tr>
+                                            <tr class="m-0 p-0">
+                                                <th colspan="9" class="text-end p-0 m-0 no-padding">Net Bill</th>
                                                 <th class="text-end p-0 m-0 border-2 border-start-0 border-end-0 border-dark no-padding">{{number_format($sale->net,2)}}</th>
                                             </tr>
                                             <tr class="m-0 p-0">
-                                                <th colspan="3" class="text-end p-0 m-0 no-padding">Net Account Balance</th>
-                                                <th class="text-end p-0 m-0 no-padding">{{number_format(spotBalance($sale->customerID, $sale->refID),2)}}</th>
-                                                <th colspan="5" class="text-end p-0 m-0 no-padding">Paid</th>
+                                                <th colspan="9" class="text-end p-0 m-0 no-padding">Paid</th>
                                                 <th class="text-end p-0 m-0 no-padding">{{number_format($paid,2)}}</th>
                                             </tr>
                                             <tr class="m-0 p-0">
@@ -159,6 +165,10 @@
                                                 <th colspan="9" class="text-end p-0 m-0">Previous Balance</th>
                                                 <th class="text-end p-0 m-0">{{number_format(spotBalanceBefore($sale->customerID, $sale->refID),2)}}</th>
                                             </tr> --}}
+                                            <tr class="m-0 p-0">
+                                                <th colspan="9" class="text-end p-0 m-0 no-padding">Net Account Balance</th>
+                                                <th class="text-end p-0 m-0 no-padding">{{number_format(spotBalance($sale->customerID, $sale->refID),2)}}</th>
+                                            </tr>
                                         </tfoot>
                                     </table><!--end table-->
                                 </div>

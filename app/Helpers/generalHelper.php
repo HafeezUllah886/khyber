@@ -160,3 +160,18 @@ function calculateGrowthPercentage($oldValue, $newValue) {
     $growthPercentage = (($newValue - $oldValue) / $oldValue) * 100;
     return $growthPercentage;
 }
+
+function projectNameAuth()
+{
+    return "KHYBER TRADERS";
+}
+
+function projectNameHeader()
+{
+    return "KHYBER TRADERS";
+}
+function projectNameShort()
+{
+    return "KT";
+}
+

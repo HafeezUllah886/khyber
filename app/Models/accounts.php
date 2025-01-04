@@ -36,4 +36,9 @@ class accounts extends Model
     {
         return $this->hasMany(sales::class, 'customerID');
     }
+
+    public function area()
+    {
+        return $this->belongsTo(areas::class, 'areaID');
+    }
 }

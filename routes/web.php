@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AreaController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\ProductsController;
@@ -25,6 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('categories', CategoriesController::class)->middleware(adminCheck::class);
     Route::resource('product', ProductsController::class)->middleware(adminCheck::class);
     Route::resource('warehouses', WarehousesController::class);
+    Route::resource('area', AreaController::class);
 
 });
 

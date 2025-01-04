@@ -225,6 +225,10 @@
                                     data-key="t-basic-elements">Products Sales Report</a>
                             </li>
                             <li class="nav-item">
+                                <a href="{{ route('reportAreaSales') }}" class="nav-link"
+                                    data-key="t-basic-elements">Area Sales Report</a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="{{ route('reportPurchases') }}" class="nav-link"
                                     data-key="t-basic-elements">Purchases Report</a>
                             </li>
@@ -270,6 +274,20 @@
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a href="{{ route('warehouses.index') }}" class="nav-link" data-key="t-chat">Warehouses
+                                    List </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#area" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarApps">
+                        <i class="ri-apps-2-line"></i> <span data-key="t-apps">Areas</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="area">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="{{ route('area.index') }}" class="nav-link" data-key="t-chat">Area
                                     List </a>
                             </li>
                         </ul>

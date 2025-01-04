@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('accounts', function (Blueprint $table) {
-            $table->string('c_type')->default('Other');
+        Schema::create('areas', function (Blueprint $table) {
+            $table->id();
+            $table->string("name");
+            $table->timestamps();
         });
     }
 
@@ -21,8 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('accounts', function (Blueprint $table) {
-            $table->string('c_type')->default('Other');
-        });
+        Schema::dropIfExists('areas');
     }
 };

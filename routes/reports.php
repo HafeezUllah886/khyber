@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\reports\profitController;
 use App\Http\Controllers\reports;
+use App\Http\Controllers\reports\areaSalesReportController;
 use App\Http\Controllers\reports\balanceSheetReport;
 use App\Http\Controllers\reports\comparisonReportController;
 use App\Http\Controllers\reports\customerBalanceReportController;
@@ -37,6 +38,9 @@ Route::middleware('auth', adminCheck::class)->group(function () {
 
     Route::get('/reports/saleProducts', [saleProductsReportController::class, 'index'])->name('reportSaleProducts');
     Route::get('/reports/saleProductsData/{from}/{to}', [saleProductsReportController::class, 'data'])->name('reportSaleProductsData');
+
+    Route::get('/reports/areasales', [areaSalesReportController::class, 'index'])->name('reportAreaSales');
+    Route::get('/reports/areasalesdata', [areaSalesReportController::class, 'data'])->name('reportAreaSalesData');
 
     Route::get('/reports/productSummary', [productSummaryReport::class, 'index'])->name('reportProductSummary');
 

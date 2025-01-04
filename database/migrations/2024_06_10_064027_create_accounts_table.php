@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('accounts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->foreignId('areaID')->constrained('areas', 'id');
             $table->string('type');
             $table->string('category')->nullable();
             $table->string('cnic')->nullable();
@@ -21,6 +22,7 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('ntn')->nullable();
             $table->string('strn')->nullable();
+            $table->string('c_type')->default('Other');
             $table->timestamps();
         });
     }

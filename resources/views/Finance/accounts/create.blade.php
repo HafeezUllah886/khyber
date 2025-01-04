@@ -48,6 +48,16 @@
                             </div>
                             <div class="col-6 mt-2 customer" >
                                 <div class="form-group">
+                                    <label for="area">Area</label>
+                                    <select name="areaID" id="area" class="form-control">
+                                        @foreach ($areas as $area)
+                                            <option value="{{ $area->id }}">{{ $area->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-6 mt-2 customer" >
+                                <div class="form-group">
                                     <label for="cnic">Customer Category</label>
                                     <select name="c_type" id="c_type" class="form-control">
                                         <option value="Distributor">Distributor</option>

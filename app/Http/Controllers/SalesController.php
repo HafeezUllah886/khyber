@@ -25,7 +25,6 @@ class SalesController extends Controller
      */
     public function index(Request $request)
     {
-
         $start = $request->start ?? now()->toDateString();
         $end = $request->end ?? now()->toDateString();
 
@@ -66,10 +65,12 @@ class SalesController extends Controller
 
             DB::beginTransaction();
             $ref = getRef();
+            $customer = accounts::find($request->customerID);
             $sale = sales::create(
                 [
                   'customerID'      => $request->customerID,
                   'warehouseID'     => $request->warehouseID,
+                  'areaID'          => $customer->areaID,
                   'date'            => $request->date,
                   'notes'           => $request->notes,
                   'discount'        => $request->discount1,
@@ -94,6 +95,7 @@ class SalesController extends Controller
                 sale_details::create(
                     [
                         'salesID'       => $sale->id,
+                        'areaID'        => $customer->areaID,
                         'productID'     => $id,
                         'price'         => $price,
                         'qty'           => $qty,

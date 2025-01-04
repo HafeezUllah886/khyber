@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\accounts;
+use App\Models\areas;
 use App\Models\transactions;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -25,7 +26,8 @@ class AccountsController extends Controller
      */
     public function create()
     {
-        return view('Finance.accounts.create');
+        $areas = areas::all();
+        return view('Finance.accounts.create', compact('areas'));
     }
 
     /**
@@ -61,6 +63,7 @@ class AccountsController extends Controller
                             'ntn' => $request->ntn,
                             'strn' => $request->strn,
                             'c_type' => $request->c_type,
+                            'areaID' => $request->areaID,
                         ]
                     );
                 }
@@ -70,7 +73,8 @@ class AccountsController extends Controller
                         [
                             'title' => $request->title,
                             'type' => $request->type,
-                            'category' => $request->category
+                            'category' => $request->category,
+                            'areaID' => 1,
                         ]
                     );
                 }
@@ -121,7 +125,8 @@ class AccountsController extends Controller
      */
     public function edit(accounts $account)
     {
-        return view('Finance.accounts.edit', compact('account'));
+        $areas = areas::all();
+        return view('Finance.accounts.edit', compact('account', 'areas'));
     }
 
     /**
@@ -147,7 +152,8 @@ class AccountsController extends Controller
                 'address' => $request->address ?? null,
                 'ntn' => $request->ntn ?? null,
                 'strn' => $request->strn ?? null,
-                'c_type' => $request->c_type,
+                'c_type' => $request->c_type ?? "Other",
+                'areaID' => $request->areaID ?? 1,
             ]
         );
 

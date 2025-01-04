@@ -19,7 +19,7 @@
                                 <div class="col-4"></div>
                                 <div class="col-4 text-center"><h2>INVOICE</h2></div>
                             </div>
-                            <div class="card-body p-4">
+                            <div class="card-body p-4 pt-0 pb-0">
                                 <div class="row g-3">
                                     <div class="col-2">
                                         <p class="text-muted mb-2 text-uppercase fw-semibold">Inv #</p>
@@ -51,21 +51,21 @@
                             <!--end card-body-->
                         </div><!--end col-->
                         <div class="col-lg-12">
-                            <div class="card-body p-4">
+                            <div class="card-body p-4 pt-0 pb-0">
                                 <div class="table-responsive">
                                     <table class="table table-borderless text-center table-nowrap align-middle mb-0">
                                         <thead>
                                             <tr class="table-active">
-                                                <th scope="col" style="width: 50px;">#</th>
-                                                <th scope="col" class="text-start">Product</th>
-                                                <th scope="col" class="text-end">Unit</th>
-                                                <th scope="col" class="text-end">Qty</th>
-                                                <th scope="col" class="text-end">Bonus</th>
-                                                <th scope="col" class="text-end">Price</th>
-                                                <th scope="col" class="text-end">Discount</th>
-                                                <th scope="col" class="text-end">Tax (Inc)</th>
-                                                <th scope="col" class="text-end">RP</th>
-                                                <th scope="col" class="text-end">GST {{$sale->details[0]->gst}}%</th>
+                                                <th scope="col" class="no-padding" style="width: 50px;">#</th>
+                                                <th scope="col" class="text-start no-padding">Product</th>
+                                                <th scope="col" class="text-end no-padding">Unit</th>
+                                                <th scope="col" class="text-end no-padding">Qty</th>
+                                                <th scope="col" class="text-end no-padding">Bonus</th>
+                                                <th scope="col" class="text-end no-padding">Price</th>
+                                                <th scope="col" class="text-end no-padding">Discount</th>
+                                                <th scope="col" class="text-end no-padding">Tax (Inc)</th>
+                                                <th scope="col" class="text-end no-padding">RP</th>
+                                                <th scope="col" class="text-end no-padding">GST {{$sale->details[0]->gst}}%</th>
                                             </tr>
                                         </thead>
 
@@ -85,16 +85,16 @@
                                                $totalRP += $product->tp * ($qty + $product->bonus);
                                            @endphp
                                                <tr class="border-1 border-dark">
-                                                <td class="m-1 p-1 border-1 border-dark">{{$key+1}}</td>
-                                                <td class="text-start m-1 p-1 border-1 border-dark">{{$product->product->name}}</td>
-                                                <td class="text-end m-1 p-1 border-1 border-dark">{{$product->unit->name}}</td>
-                                                <td class="text-end m-1 p-1 border-1 border-dark">{{number_format($product->qty / $product->unitValue)}}</td>
-                                                <td class="text-end m-1 p-1 border-1 border-dark">{{number_format($product->bonus)}}</td>
-                                                <td class="text-end m-1 p-1 border-1 border-dark">{{number_format($product->price, 2)}}</td>
-                                                <td class="text-end m-1 p-1 border-1 border-dark">{{number_format($product->discount, 2)}}</td>
-                                                <td class="text-end m-1 p-1 border-1 border-dark">{{number_format($product->ti, 2)}}</td>
-                                                <td class="text-end m-1 p-1 border-1 border-dark">{{number_format($product->tp, 2)}}</td>
-                                                <td class="text-end m-1 p-1 border-1 border-dark">{{number_format($product->gstValue, 2)}}</td>
+                                                <td class="m-1 p-1 border-1 border-dark no-padding">{{$key+1}}</td>
+                                                <td class="text-start m-1 p-1 border-1 border-dark no-padding">{{$product->product->name}}</td>
+                                                <td class="text-end m-1 p-1 border-1 border-dark no-padding">{{$product->unit->name}}</td>
+                                                <td class="text-end m-1 p-1 border-1 border-dark no-padding">{{number_format($product->qty / $product->unitValue)}}</td>
+                                                <td class="text-end m-1 p-1 border-1 border-dark no-padding">{{number_format($product->bonus)}}</td>
+                                                <td class="text-end m-1 p-1 border-1 border-dark no-padding">{{number_format($product->price, 2)}}</td>
+                                                <td class="text-end m-1 p-1 border-1 border-dark no-padding">{{number_format($product->discount, 2)}}</td>
+                                                <td class="text-end m-1 p-1 border-1 border-dark no-padding">{{number_format($product->ti, 2)}}</td>
+                                                <td class="text-end m-1 p-1 border-1 border-dark no-padding">{{number_format($product->tp, 2)}}</td>
+                                                <td class="text-end m-1 p-1 border-1 border-dark no-padding">{{number_format($product->gstValue, 2)}}</td>
                                                </tr>
                                            @endforeach
                                         </tbody>
@@ -107,62 +107,62 @@
                                                 $paid = $sale->payments->sum('amount');
                                             @endphp
                                             <tr class="border-1 border-dark">
-                                                <th colspan="3" class="text-end">Total</th>
-                                                <th class="text-end">{{number_format($totalQty)}}</th>
-                                                <th class="text-end">{{number_format($totalBonus)}}</th>
+                                                <th colspan="3" class="text-end no-padding">Total</th>
+                                                <th class="text-end no-padding">{{number_format($totalQty)}}</th>
+                                                <th class="text-end no-padding">{{number_format($totalBonus)}}</th>
                                                 <th></th>
-                                                <th class="text-end">{{number_format($discount,2)}}</th>
-                                                <th class="text-end">{{number_format($totalTi,2)}}</th>
-                                                <th class="text-end"></th>
-                                                <th class="text-end">{{number_format($totalGstVal,2)}}</th>
+                                                <th class="text-end no-padding">{{number_format($discount,2)}}</th>
+                                                <th class="text-end no-padding">{{number_format($totalTi,2)}}</th>
+                                                <th class="text-end no-padding"></th>
+                                                <th class="text-end no-padding">{{number_format($totalGstVal,2)}}</th>
                                             </tr>
                                             <tr class="m-0 p-0">
-                                                <th colspan="9" class="text-end p-0 m-0">Tax Exclusive</th>
-                                                <th class="text-end p-0 m-0">{{number_format($totalTi - $totalGstVal,2)}}</th>
+                                                <th colspan="9" class="text-end p-0 m-0 no-padding">Tax Exclusive</th>
+                                                <th class="text-end p-0 m-0 no-padding">{{number_format($totalTi - $totalGstVal,2)}}</th>
                                             </tr>
                                             <tr class="m-0 p-0">
-                                                <th colspan="9" class="text-end p-0 m-0">Sales Tax</th>
-                                                <th class="text-end p-0 m-0">{{number_format($totalGstVal,2)}}</th>
+                                                <th colspan="9" class="text-end p-0 m-0 no-padding">Sales Tax</th>
+                                                <th class="text-end p-0 m-0 no-padding">{{number_format($totalGstVal,2)}}</th>
                                             </tr>
                                             <tr class="m-0 p-0">
-                                                <th colspan="9" class="text-end p-0 m-0">Gross</th>
-                                                <th class="text-end p-0 m-0 border-2 border-start-0 border-end-0 border-dark">{{number_format($totalTi,2)}}</th>
+                                                <th colspan="9" class="text-end p-0 m-0 no-padding">Gross</th>
+                                                <th class="text-end p-0 m-0 border-2 border-start-0 border-end-0 border-dark no-padding">{{number_format($totalTi,2)}}</th>
                                             </tr>
                                             <tr class="m-0 p-0">
-                                                <th colspan="9" class="text-end p-0 m-0">WH Tax {{$sale->wh}}% (+)</th>
-                                                <th class="text-end p-0 m-0">{{number_format($sale->whValue,2)}}</th>
+                                                <th colspan="9" class="text-end p-0 m-0 no-padding">WH Tax {{$sale->wh}}% (+)</th>
+                                                <th class="text-end p-0 m-0 no-padding">{{number_format($sale->whValue,2)}}</th>
                                             </tr>
                                             <tr class="m-0 p-0">
-                                                <th colspan="9" class="text-end p-0 m-0">Discount (-)</th>
+                                                <th colspan="9" class="text-end p-0 m-0 no-padding">Discount (-)</th>
                                                 <th class="text-end p-0 m-0 ">{{number_format($sale->discount,2)}}</th>
                                             </tr>
-                                            <tr class="m-0 p-0">
-                                                <th colspan="9" class="text-end p-0 m-0">Fright (-)</th>
-                                                <th class="text-end p-0 m-0 ">{{number_format($sale->fright,2)}}</th>
+                                            <tr class="m-0 p-0 no-padding">
+                                                <th colspan="9" class="text-end p-0 m-0 no-padding">Fright (-)</th>
+                                                <th class="text-end p-0 m-0  no-padding">{{number_format($sale->fright,2)}}</th>
                                             </tr>
                                             <tr class="m-0 p-0">
-                                                <th colspan="9" class="text-end p-0 m-0">Fright (+)</th>
-                                                <th class="text-end p-0 m-0 ">{{number_format($sale->fright1,2)}}</th>
+                                                <th colspan="9" class="text-end p-0 m-0 no-padding">Fright (+)</th>
+                                                <th class="text-end p-0 m-0  no-padding">{{number_format($sale->fright1,2)}}</th>
                                             </tr>
                                             <tr class="m-0 p-0">
-                                                <th colspan="9" class="text-end p-0 m-0">Net Bill</th>
-                                                <th class="text-end p-0 m-0 border-2 border-start-0 border-end-0 border-dark">{{number_format($sale->net,2)}}</th>
+                                                <th colspan="9" class="text-end p-0 m-0 no-padding">Net Bill</th>
+                                                <th class="text-end p-0 m-0 border-2 border-start-0 border-end-0 border-dark no-padding">{{number_format($sale->net,2)}}</th>
                                             </tr>
                                             <tr class="m-0 p-0">
-                                                <th colspan="9" class="text-end p-0 m-0">Paid</th>
-                                                <th class="text-end p-0 m-0">{{number_format($paid,2)}}</th>
+                                                <th colspan="9" class="text-end p-0 m-0 no-padding">Paid</th>
+                                                <th class="text-end p-0 m-0 no-padding">{{number_format($paid,2)}}</th>
                                             </tr>
                                             <tr class="m-0 p-0">
-                                                <th colspan="9" class="text-end p-0 m-0">Due</th>
-                                                <th class="text-end p-0 m-0">{{number_format($due,2)}}</th>
+                                                <th colspan="9" class="text-end p-0 m-0 no-padding">Due</th>
+                                                <th class="text-end p-0 m-0 no-padding">{{number_format($due,2)}}</th>
                                             </tr>
                                             {{-- <tr class="m-0 p-0">
                                                 <th colspan="9" class="text-end p-0 m-0">Previous Balance</th>
                                                 <th class="text-end p-0 m-0">{{number_format(spotBalanceBefore($sale->customerID, $sale->refID),2)}}</th>
                                             </tr> --}}
                                             <tr class="m-0 p-0">
-                                                <th colspan="9" class="text-end p-0 m-0">Net Account Balance</th>
-                                                <th class="text-end p-0 m-0">{{number_format(spotBalance($sale->customerID, $sale->refID),2)}}</th>
+                                                <th colspan="9" class="text-end p-0 m-0 no-padding">Net Account Balance</th>
+                                                <th class="text-end p-0 m-0 no-padding">{{number_format(spotBalance($sale->customerID, $sale->refID),2)}}</th>
                                             </tr>
                                         </tfoot>
                                     </table><!--end table-->
